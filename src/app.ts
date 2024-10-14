@@ -4,7 +4,7 @@ import helmet from 'helmet'
 import hpp from 'hpp'
 import { errorHandler, notFound } from './middlewares'
 import { apiRouter } from './api'
-import { httpLogger } from './utils'
+import { httpLogger, connectToRedis, logger } from './utils'
 
 const app = express()
 
@@ -17,6 +17,13 @@ app.use(httpLogger)
 app.get('/ping', (req, res) => {
   res.status(200).send({ message: 'pong' })
 })
+
+try {
+  connectToRedis()
+} catch (error) {
+  logger.fatal(error)
+  process.exit(1)
+}
 
 app.use('/api', apiRouter)
 

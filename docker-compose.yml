@@ -9,3 +9,16 @@ services:
       - PORT=${PORT}
     ports:
       - ${PORT}:${PORT}
+  redis:
+    container_name: warroom-redis
+    restart: always
+    ports:
+      - ${REDIS_EXPOSE_PORT:-6379}:6379
+    volumes:
+      - redis_data:/data
+    environment:
+      - REDIS_ARGS=--appendonly yes
+
+volumes:
+  redis_data:
+

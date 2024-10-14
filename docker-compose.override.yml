@@ -9,6 +9,12 @@ services:
     environment:
       - NODE_ENV=development
     command: npm run dev
+  redis:
+    image: redis/redis-stack:7.2.0-v10
+    networks:
+      - warroom-network
+    ports:
+      - ${REDIS_INSIGHT_EXPOSE_PORT:-8001}:8001
 
 networks:
   warroom-network:
