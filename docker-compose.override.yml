@@ -1,0 +1,16 @@
+services:
+  core:
+    networks:
+      - warroom-network
+    build:
+      target: development
+    volumes:
+      - ./:/usr/src/app
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+
+networks:
+  warroom-network:
+    name: warroom-network
+    driver: bridge

@@ -1,0 +1,49 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "no-console": "warn",
+    "no-unused-vars": ["warn", { "varsIgnorePattern": "Express" }],
+    "no-empty": "error",
+    "no-var": "error",
+    "prefer-const": [
+      "error",
+      {
+        "destructuring": "any"
+      }
+    ],
+    "prefer-spread": "error",
+    "require-await": "error",
+    "yoda": ["error", "never"],
+    "no-class-assign": "error",
+    "no-compare-neg-zero": "error",
+    "no-const-assign": "error",
+    "no-constant-condition": "error",
+    "no-constructor-return": "error",
+    "no-dupe-args": "error",
+    "no-dupe-class-members": "error",
+    "no-dupe-keys": "error",
+    "no-duplicate-case": "error",
+    "no-duplicate-imports": "error",
+    "no-ex-assign": "error",
+    "no-self-assign": "error",
+    "no-unsafe-negation": "error",
+    "consistent-return": "warn",
+    "@typescript-eslint/ban-types": [
+      "warn",
+      {
+        "types": {
+          "{}": "Use 'object' instead of '{}'"
+        }
+      }
+    ]
+  }
+}
